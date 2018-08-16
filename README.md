@@ -1,5 +1,5 @@
 # Java Multiplayer Game Tutorial
-The Source code for my Java Multiplayer Game Tutorial Series!
+The source code for my Java Multiplayer Game Tutorial Series!
 
 
 ## Having Trouble?
