@@ -6,9 +6,11 @@ import java.net.Socket;
 
 public class Server implements Runnable{
 	
+	@SuppressWarnings("unused")
 	private int port;
 	private ServerSocket serverSocket;
 	private boolean running = false;
+	private int id = 0;
 	
 	public Server(int port) {
 		this.port = port;
@@ -40,8 +42,9 @@ public class Server implements Runnable{
 	}
 	
 	private void initSocket(Socket socket) {
-		Connection connection = new Connection(socket);
+		Connection connection = new Connection(socket,id);
 		new Thread(connection).start();
+		id++;
 	}
 	
 	public void shutdown() {
@@ -53,5 +56,4 @@ public class Server implements Runnable{
 			e.printStackTrace();
 		}
 	}
-
 }

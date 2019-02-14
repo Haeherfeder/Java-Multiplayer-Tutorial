@@ -10,11 +10,12 @@ public class Connection implements Runnable{
 	private Socket socket;
 	private ObjectInputStream in;
 	private ObjectOutputStream out;
+	@SuppressWarnings("unused")
 	private int id;
 	
-	public Connection(Socket socket) {
+	public Connection(Socket socket,int id) {
 		this.socket = socket;
-		id = 0;
+		this.id = id;
 		
 		try {
 			out = new ObjectOutputStream(socket.getOutputStream());
@@ -29,8 +30,9 @@ public class Connection implements Runnable{
 		try {
 			while(socket.isConnected()) {
 				try {
+					@SuppressWarnings("unused")
 					Object data = in.readObject();
-					
+					//new HandleData(data, id);
 				}catch(ClassNotFoundException e) {
 					e.printStackTrace();
 				}
